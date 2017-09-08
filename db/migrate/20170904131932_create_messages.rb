@@ -1,9 +1,9 @@
 class CreateMessages < ActiveRecord::Migration[5.1]
   def change
     create_table :messages do |t|
-      t.integer :tx_user_id
-      t.integer :rx_user_id
-      t.string :message
+      t.integer :txuser_id
+      t.integer :rxuser_id
+      t.text :message
       t.boolean :read, default: false
       t.timestamps
     end
