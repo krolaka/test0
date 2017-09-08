@@ -16,6 +16,7 @@ table.table
         td= user.admin == true ? 'Admin' : 'User'
         th
           = link_to 'Send message', new_messages_path(user.id), class: 'btn btn-sm btn-default'
-          = link_to 'Edit', edit_user_path(user.id), class: 'btn btn-sm btn-default'
-
-= link_to 'Add', new_user_path, class: 'btn btn-sm btn-default'
+          - if can? :update, @users
+            = link_to 'Edit', edit_user_path(user.id), class: 'btn btn-sm btn-default'
+- if can? :create, @users
+  = link_to 'Add', new_user_path, class: 'btn btn-sm btn-default'

@@ -37,10 +37,11 @@
               = t('.about_information', default: 'Short information about you')
               | )
             = f.text_area :about, class: 'form-control'
-          .checkbox
-            = f.label :admin do
-              = f.check_box :admin
-              = t('.admin_checkbox', default: 'Admin permission')
+          - if can? :update, @users
+            .checkbox
+              = f.label :admin do
+                = f.check_box :admin
+                = t('.admin_checkbox', default: 'Admin permission')
           = f.submit t('.update', default: 'Update'), class: 'btn btn-primary'
     p
       = t('.unhappy', default: 'Unhappy')
