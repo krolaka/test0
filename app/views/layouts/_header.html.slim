@@ -9,8 +9,15 @@
       #main-menu.collapse.navbar-collapse
         ul.nav.navbar-nav.navbar-right
           - if user_signed_in?
-            li
-              = link_to 'Test', '/'
+            li= link_to 'Users', users_list_path, :class => 'navbar-link'
+            li.messages-info-block
+              = link_to messages_path do
+                span.glyphicon.glyphicon-envelope
+                span.found-messages.hidden
+                  = "You have "
+                  span.count_messages
+                  = " unread messages."
+                span.notfound-messages.hidden You don't have new messages.
             li
               = link_to current_user.email, edit_user_registration_path, :class => 'navbar-link'
             li
