@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :messages, except: [:new] do
     collection do
       get '/count_messages', to: 'messages#get_message_count'
-      #get '/load_messages/:rxuser_id', to: 'messages#load_messages', as: :load_messages
+      get '/load_messages', to: 'messages#load_messages', as: :load_messages
       get '/new/:rxuser_id', to: 'messages#new', as: :new
     end
   end
