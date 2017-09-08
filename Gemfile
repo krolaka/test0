@@ -35,7 +35,7 @@ gem 'jbuilder', '~> 2.5'
 
 # Authentication
 gem 'devise', '~> 4.2'
-gem 'cancan', '~> 1.6', '>= 1.6.10'
+gem 'cancancan', '~> 2.0'
 
 # Template
 gem 'twitter-bootstrap-rails', '~> 3.2', '>= 3.2.2'
