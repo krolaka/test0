@@ -22,4 +22,4 @@ $(document).on "turbolinks:load", ->
   getCount()
   setInterval ->
     getCount()
-  , 1000000
+  , 10000
