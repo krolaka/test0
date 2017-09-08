@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  load_and_authorize_resource :only => [:new, :create, :update, :destroy, :edit]
 
   before_action :find_user, only: [:show, :edit, :destroy, :update]
 
@@ -39,7 +40,7 @@ class UsersController < ApplicationController
     if @user.valid? && @user.save
       redirect_to users_path, notice: 'Profile was successfully edited'
     else
-      redirect_to edit_user(@user.id), alert: 'Something went wrong!'
+      redirect_to edit_user_path(@user.id), alert: 'Something went wrong!'
     end
   end
 
@@ -50,6 +51,10 @@ class UsersController < ApplicationController
   end
 
   def user_params
+    if params[:user][:password].blank? && params[:user][:password_confirmation].blank?
+      params[:user].delete :password
+      params[:user].delete :password_confirmation
+    end
     params.require(:user).permit(:username, :email, :about, :admin, :blocked, :password, :password_confirmation)
   end
 
