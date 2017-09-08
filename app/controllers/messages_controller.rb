@@ -3,7 +3,7 @@ class MessagesController < ApplicationController
   before_action :find_message, only: [:show, :edit]
 
   def index
-    @messages = Message.where(rxuser_id: current_user.id)
+    @messages = Message.where(rxuser_id: current_user.id).order(created_at: :desc)
   end
 
   def show
@@ -11,8 +11,9 @@ class MessagesController < ApplicationController
     @messages_history = Message.get_messages current_user.id, @message.txuser_id
   end
 
-  def mark_as_read
-    @message.mark_as_read if message.rx_user_id == current_user.id
+  def load_messages
+    @messages = Message.where(rxuser_id: current_user.id).order(created_at: :desc)
+    render :_messages, :layout => false
   end
 
   def new
