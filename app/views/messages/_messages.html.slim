@@ -1,0 +1,8 @@
+- @messages.each do |message|
+  tr class=[message.read ? '' : 'info']
+    td = message.tx_user.username
+    td = message.rx_user.username
+    td = message.message[0..128]
+    td = message.created_at.strftime('%c')
+    td
+      = link_to 'Read & Reply', message_path(message.id), class: 'btn btn-sm btn-default'

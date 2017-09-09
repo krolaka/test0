@@ -1,0 +1,22 @@
+h2 Users list
+table.table
+  thead
+    tr
+      th User name
+      th About
+      th Active
+      th Role
+      th
+  tbody.users_list
+    - @users.each do |user|
+      tr
+        td= user.username
+        td= user.about
+        td= user.blocked == false ? 'Active' : 'Blocked'
+        td= user.admin == true ? 'Admin' : 'User'
+        th
+          = link_to 'Send message', new_messages_path(user.id), class: 'btn btn-sm btn-default'
+          - if can? :update, @users
+            = link_to 'Edit', edit_user_path(user.id), class: 'btn btn-sm btn-default'
+- if can? :create, @users
+  = link_to 'Add', new_user_path, class: 'btn btn-sm btn-default'

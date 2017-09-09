@@ -1,0 +1,18 @@
+h2
+  = 'Latest messages'
+  a.btn.btn-default.pull-right.refresh-button
+    .glyphicon.glyphicon-refresh
+    span Refresh
+- unless @messages.blank?
+  table.table
+    thead
+      tr
+        th From
+        th To
+        th Short message
+        th Date
+        th
+    tbody.messages_list
+    = render partial: "messages/messages", locals: {messages: @messages}
+- else
+  p Nothing to show

@@ -1,0 +1,6 @@
+- @messages_history.each do |message|
+  .message-item-block.clearfix
+    .message-item.clearfix class=[message.rxuser_id == current_user.id ? 'income':'outcome pull-right']
+      span.message-date
+        small=message.created_at.strftime('%T')
+      span.message-item-body= message.message

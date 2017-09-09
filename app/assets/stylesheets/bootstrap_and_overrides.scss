@@ -1,0 +1,81 @@
+/*
+  =require twitter-bootstrap-static/bootstrap
+
+  Use Font Awesome icons (default)
+  To use Glyphicons sprites instead of Font Awesome, replace with "require twitter-bootstrap-static/sprites"
+  =require twitter-bootstrap-static/fontawesome
+  =require twitter-bootstrap-static/sprites
+  */
+
+#header-wrapper {
+  .navbar {
+    border-bottom: 0;
+    .navbar-brand {
+      font-size: 1.5em;
+      font-weight: 500;
+      padding: 0.5em;
+      display: block;
+      color: #F7F7F7;
+      .glyphicon{ top: 0.1em; }
+    }
+  }
+  #main-menu .navbar-nav {
+    li {
+      a {
+        font-size: 1.1em;
+        font-weight: 100;
+        line-height: 1.3em;
+        color: #F7F7F7;
+      }
+    }
+    li.messages-info-block {
+      .glyphicon {
+        right: 0.1em;
+        top: 0.15em;
+      }
+    }
+  }
+}
+
+
+
+.message-history {
+  max-height: 20em;
+  min-height: 5em;
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: #fff;
+  border: 1px solid #CCCCCC;
+  .message-item-block {
+    padding-left: 10px;
+    padding-right: 10px;
+    .message-item {
+      .message-date {
+        padding-right: 5px;
+        padding-right: 5px;
+      }
+    }
+    .message-item.outcome {
+      float: right !important;
+      .message-date {
+        float: right;
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+    }
+    .message-item.income {float: left !important;  }
+    .message-item-body {
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #CCC;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+
+
+
+
